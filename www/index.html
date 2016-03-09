@@ -1,0 +1,120 @@
+﻿<!doctype html>
+
+<html ng-app="app">
+<head>
+	  <meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"/>-->
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/reset.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"/> 
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script> 
+    <script type='text/javascript' src='js/js.js'></script>
+    <script type='text/javascript' src='js/jsAngular.js'></script>
+    <title>Форма регистрации Lun</title>
+</head>
+<body ng-controller="pageController as tab">
+    <div class="content col-md-offset-2  col-md-8 ">
+
+        <section class="tabs  col-md-offset-5" >
+            <ul class="nav nav-pills">
+              <li ng-class="{ active:tab.isSet(1), done:tab.isCorrect(1) }">1</li>
+              <li ng-class="{ active:tab.isSet(2), done:tab.isCorrect(2) }">2</li>
+              <li ng-class="{ active:tab.isSet(3), done:tab.isCorrect(3) }">3</li>
+              <li ng-class="{ active:tab.isSet(4), done:tab.isCorrect(4) }">4</li>
+            </ul>
+        </section>
+
+        <div class="reg-area" ng-controller="formController as form" ng-init="user={}">
+         <form name="formReg"  class="css-form" novalidate>
+         <label class="col-md-offset-4">{{tab.label[tab.currentPage-1]}}</label>
+
+                  <div ng-show="tab.isSet(1)" class="col-md-offset-4 field" >
+                      <div class="row">
+                                <input name="name" class="form-control inp"  ng-model="user.name" placeholder="Имя" type="text" id="name" required/>
+                                <span ng-show="formReg.name.$dirty&&formReg.name.$error.required">- введите имя</span>
+                      </div>
+                      <div class="row">
+                                <input name="email"  ng-model="user.email" class="form-control inp" placeholder="E-mail" type="email" id="email" required/>
+                                  <span ng-show="formReg.email.$dirty&&formReg.email.$error.required">- ведите email</span>
+                                  <span ng-show="formReg.email.$dirty && formReg.email.$error.email">- некорректный email</span>
+                      </div>
+                  </div>  
+
+                  <div ng-show="tab.isSet(2)" class="col-md-offset-4 field">
+                            <select class="form-control place" ng-model="user.countries" id="countries" required> <option value="" disabled selected hidden>Страна</option></select>
+                            <select class="form-control place" ng-model="user.cities" id="cities" required ng-disabled="form.controlCountry(user.countries)"> <option  value="" disabled selected hidden>Город</option></select>   
+                  </div> 
+
+                  <div ng-show="tab.isSet(3)" class="col-md-offset-4 field">
+                      <div class="row socRow">
+                            <input class='checkbox' ng-model="user.fb" type="checkbox"/>
+                            Facebook
+                            <input class="form-control soc"  ng-show="user.fb" placeholder="fb.com" ng-model="user.fbsite" ng-pattern="{{form.patternUrl}}" required/>    
+                      </div>
+                       <div class="row socRow">      
+                            <input class='checkbox' ng-model="user.twitt" type="checkbox"/>
+                            Twitter
+                            <input class="form-control soc"  ng-show="user.twitt" placeholder="twitter.com" ng-model="user.twittsite" ng-pattern="{{form.patternUrl}}" required/>
+                        </div>
+                         <div class="row socRow">    
+                            <input class='checkbox' ng-model="user.insta" type="checkbox"/>
+                            Instagram
+                            <input class="form-control soc"  ng-show="user.insta" placeholder="instagram.com" ng-model="user.instasite"  ng-pattern="{{form.patternUrl}}" required/>
+                         </div>
+                          <div class="row socRow">   
+                            <input class='checkbox' ng-model="user.vk" type="checkbox"/>
+                            Вконтакте
+                            <input class="form-control soc"  ng-show="user.vk" placeholder="vk.com" ng-model="user.vksite" ng-pattern="{{form.patternUrl}}" required/>
+                      </div>      
+                  </div>  
+
+                  <div ng-show="tab.isSet(4)" class="field">
+                      <div class='pictures row' >
+                             <div class="col-md-3 col-xs-10 imag" ><img ng-click="pict=1" ng-class="{ right: pict==1 }" ng-src="/images/cat1.jpg"/></div>
+                             <div class="col-md-3 col-xs-10  imag" ><img ng-click="pict=2" ng-class="{ right: pict==2 }" ng-src="/images/cat2.jpg"/></div>
+                             <div class="col-md-3 col-xs-10  imag" ><img ng-click="pict=3" ng-class="{ right: pict==3 }" ng-src="/images/cat3.jpg"/></div>
+                             <div class="col-md-3 col-xs-10  imag" ><img ng-click="pict=4" ng-class="{ wrong: pict==4 }" ng-src="/images/dog4.jpg"/></div>
+                             <span ng-show="pict==4">Вам нужно выбрать котика</span>
+                      </div>
+                  </div>  
+
+                  <div ng-show="tab.isSet(5)" >
+                  <div class="row info ">
+                        <div class=" col-md-5 col-xs-11 col-xs-offset-1 textInfo">
+                                <p class="nameInfo">{{user.name}}</p>
+                                <p class="emailInfo">{{user.email}}</p>
+                                <p class="placeInfo">{{user.countries}}, {{user.cities}}</p>
+                                <div class="socialInfo">
+                                        <p ng-show="user.fbsite"><span>Facebook:</span>{{user.fbsite}}</p>
+                                        <p ng-show="user.twittsite"><span>Twitter:</span>{{user.twittsite}}</p>
+                                        <p ng-show="user.instasite"><span>Instagram:</span>{{user.instasite}}</p>
+                                        <p ng-show="user.vksite"><span>Вконтакте:</span>{{user.vksite}}</p>                               
+                                </div>
+                        </div>
+                        <div class=" col-md-2 col-xs-11 pic"><img ng-src="/images/cat{{pict}}.jpg" /></div>
+                  </div>
+                  </div>
+                  <div class="col-md-offset-4 col-md-8">        
+                           <input  class="btn btn-prev btn-default" type="button"  
+                                   ng-click="tab.loadPage(tab.currentPage-1)" 
+                                   ng-hide="tab.currentPage==5" ng-disabled="tab.currentPage==1" 
+                                   value="Назад"/>
+                           <input  class="btn btn-next btn-default" type="button"
+                                   ng-disabled="form.checkValidation(user,formReg,tab.currentPage,pict)" 
+                                   ng-hide="tab.currentPage==5"    ng-click="tab.loadPage(tab.currentPage+1)"  
+                                   value="{{tab.secondButton.text}}"/>
+                           <input  class=" btn-again btn col-offset-xs-2"  type="button"  
+                                   ng-show="tab.currentPage==5"  
+                                   ng-click="form.reset(user,formReg,pict);pict=0;tab.loadPage(1)" 
+                                   value="Заполнить снова"/>
+                  </div>
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

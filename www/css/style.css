@@ -1,0 +1,182 @@
+body {  
+	background-color:#f5f5f5 !important;
+	font-family: 'Open Sans'!important;
+} 
+span {
+	float: right;
+	color: red;
+	 font-family: 'Open Sans';
+	 margin-top: 10px!important;
+	 width: 35%;	
+} 
+input {outline: none;}
+input:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px #fff !important; /* Цвет фона */
+    -webkit-text-fill-color: #999 !important; /* цвет текста */
+    color: #999 !important; /* цвет текста */
+}
+label
+{
+	margin-top:15px;
+	margin-bottom: 30px!important; 
+    font-size: 15px;
+    font-weight:normal;
+    color:#677277;
+}
+input, select {
+    margin:5px!important;  
+}
+form{
+	height: 70%!important;
+}
+.done
+{
+    color: #ff9800!important;
+    font-weight: bold!important;
+    border:1px solid #ff9800!important;
+}
+.active
+{
+    color: black!important;
+    font-weight: bold!important;
+    border: 1px solid black!important;
+}
+.wrong {
+	box-shadow: 0 0 10px #E7002F;
+}
+.right {
+	box-shadow: 0 0 10px #ff9800;
+}
+.css-form input.ng-invalid.ng-dirty {
+    border-color: #E7002F;
+} 
+.reg-area {
+	height:200px;
+}   
+.tabs
+{
+    margin-top:80px;
+}
+.tabs li
+{
+  font-size: 10px;
+  font-weight:bold;
+  display: inline;
+  color: #CAC9C9;
+  background: #FFFFFF; 
+  padding: 10px 15px;
+  margin-right:3px;
+  border: #CAC9C9 solid 1px;
+}
+.btn-prev, .btn-next, .btn-again {
+	cursor: pointer;
+	background: #FFFFFF;
+	box-shadow: 0 1px 2px #DCDCDC;
+	border-radius: 2px;
+	padding: 5px 10px;
+	width: 140px!important;
+	margin-left: -25px!important;
+	margin-right: 35px!important;
+	margin-top: 50px!important;
+}
+.btn-next{
+    color:#ff9800!important;
+	background: url(/images/btn.png)!important;
+}
+.btn-prev{
+	color:#ff9800!important;
+	background: url(/images/btn_b.png)!important;
+}
+.btn-again{
+	margin-top: 30px!important;
+	background-color: #ff9800;
+	color:white;
+}
+.button-area{
+    height: 20%;
+
+}
+.place{
+	width: 60%!important;
+}
+.inp{
+	float: left;
+	width: 60%!important;
+}
+.soc{
+	width: 50%!important;
+	float: right;
+	margin-top:-5px!important;
+	margin-bottom:20px; 
+}
+.checkbox{
+   height:14px !important;
+   width:5% !important; 
+   margin-left:0px;
+   margin:20px;
+   float: left;
+}
+.field{
+	height: auto;
+}
+.reg-area{
+	height: 250px;
+	margin-bottom: 50px;
+}
+.socRow{
+	height: 40px;
+	width:60%;
+}
+.pictures img{
+   margin-bottom:20px;
+   width:157px;
+   height:157px;   
+}
+.pictures span{
+   float:left;  
+}
+/*последняя страница*/
+.info{
+    background:white!important;
+    padding:24px;
+    height: auto;
+    width:100%!important;  
+}
+.nameInfo{
+    font-size:20px;
+    font-weight:bold;
+}
+.emailInfo{
+    color:darkgrey;
+    font-size:12px; 
+    padding-bottom:20px;
+}
+.placeInfo{
+    color:grey;
+    font-size:15px; 
+
+}
+.socialInfo{
+    color:darkgrey;
+    font-size:14px;
+    float:bottom;
+}
+.socialInfo p{
+    color: grey!important;
+    height: 20px;
+
+}
+.socialInfo span{
+    color: darkblue!important;
+    float:left;
+    margin-top:0px!important;
+}
+.pic  {
+  float:right;   
+}
+.pic img{
+width:300px;
+}
+.textInfo{
+	float:right;
+}
